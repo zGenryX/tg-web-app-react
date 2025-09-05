@@ -1,11 +1,14 @@
 
 
 import './App.css';
-import { useEffect } from 'react';
+import {useEffect} from 'react';
+import {useTelegram} from './hooks/useTelegram';
+
 
  
 //кнопка закрытия приложения
 function App() {
+  const {onToggleButton, tg} = useTelegram();
   //метод инициализакии приложения
   useEffect( () => {
     tg.ready();
@@ -14,7 +17,7 @@ function App() {
   //визуализация кнопки
   return (
     <div className="App">
-      Работает?
+      <button onClick={onToggleButton}>toggle</button>
 
     </div>
   );
